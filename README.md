@@ -1,42 +1,102 @@
 # AI-Powered Document Intelligence Platform
 
-An intelligent document processing platform with considerations for eIDAS compliance.
+Intelligent document processing (IDP) platform with OCR simulation, classification, key-field extraction, semantic search, and **eIDAS / EU AI Act** compliance considerations.
 
-## Overview
+**Live demo pattern:** Deploy on Vercel · Portfolio project by [Abhishek Kumar](https://github.com/itsabhipro)
 
-Leverages AI to extract, classify, and understand documents while keeping European digital identity and trust service requirements (eIDAS) in mind.
-
-## Key Themes
-
-- AI-driven document understanding (OCR, classification, extraction)
-- Secure document handling and storage
-- eIDAS compliance considerations for electronic identification and trust services
-- Auditability and data integrity
-
-## Tech Stack (Aligned with Skills)
-
-- Azure AI / Cognitive Services patterns
-- ASP.NET Core backend services
-- Secure storage (Azure Blob / ADLS)
-- Identity and access control (Azure AD / Entra ID)
-- Event-driven processing pipelines
+---
 
 ## Features
 
-- Document ingestion and preprocessing
-- Intelligent extraction of structured data
-- Classification and workflow routing
-- Secure access and audit trails
-- Architecture designed with regulatory considerations
+| Capability | Description |
+|------------|-------------|
+| **Document ingestion** | Drag-and-drop upload (PDF, images, DOCX) |
+| **Classification** | Auto-detect invoice, contract, identity, receipt, certificate, etc. |
+| **Field extraction** | Schema-based key-value extraction with confidence scores |
+| **OCR text** | Full-text extraction view (demo pipeline) |
+| **Human review** | Low-confidence documents routed to review queue |
+| **Search** | Search across names, categories, fields, and extracted text |
+| **eIDAS awareness** | Identity & contract docs flagged for high-assurance handling |
+| **Audit trail** | Per-document and global logs; AI actions explicitly marked |
+| **Transparency** | Confidence scores + AI badges (EU AI Act Article 50 style) |
 
-## Project Status
+---
 
-Portfolio project by [Abhishek Kumar](https://github.com/itsabhipro) demonstrating AI + compliance-aware system design.
+## Tech stack
 
-## Disclaimer
+- **Next.js 14** (App Router) + **TypeScript**
+- **Tailwind CSS** + Lucide icons
+- Client-side document store (localStorage) for zero-backend demo
+- Designed to plug into Azure AI Document Intelligence / real OCR APIs later
 
-This is a demonstration project. Production systems handling electronic signatures or high-assurance identity must follow official eIDAS requirements and certified components.
+---
+
+## Getting started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+```bash
+npm run build
+npm start
+```
+
+---
+
+## Architecture (demo)
+
+```
+Upload → Pending → Processing (OCR + classify + extract)
+                 → Completed | Review (low confidence)
+Identity / Contract → eIDAS flag + enhanced audit
+```
+
+Production mapping:
+
+- Storage → Azure Blob / S3  
+- OCR & extraction → Azure AI Document Intelligence / equivalent  
+- Identity → Entra ID / OAuth  
+- Audit → immutable log store  
+
+---
+
+## Compliance notes
+
+This is a **demonstration** of architecture patterns for:
+
+- eIDAS-relevant document detection  
+- AI transparency (labelled automated decisions)  
+- Auditability and human-in-the-loop review  
+
+**Not** a certified trust service. Production e-signature / qualified certificate flows require eIDAS-certified components.
+
+---
+
+## Project structure
+
+```
+app/
+  page.tsx              # Dashboard
+  documents/            # List + detail
+  upload/               # Upload zone
+  search/               # Full-text search
+  compliance/           # eIDAS & AI Act notes
+  audit/                # Global audit log
+components/             # UI components
+lib/                    # Store, mock data, utils
+types/                  # Shared TypeScript types
+```
+
+---
 
 ## License
 
-This project is for portfolio and demonstration purposes.
+Portfolio / demonstration purposes.
+
+---
+
+Built by [itsabhipro](https://github.com/itsabhipro) · Deployed on Vercel
