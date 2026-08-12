@@ -2,7 +2,7 @@
 
 Intelligent document processing (IDP) platform with OCR simulation, classification, key-field extraction, semantic search, and **eIDAS / EU AI Act** compliance considerations.
 
-**Live demo pattern:** Deploy on Vercel · Portfolio project by [Abhishek Kumar](https://github.com/itsabhipro)
+**Live demo pattern:** Deploy on Vercel · Portfolio project by [Abhishek Kumar click to view demo](https://ai-document-intelligence-platform-silk.vercel.app/)
 
 ---
 
@@ -99,4 +99,4 @@ Portfolio / demonstration purposes.
 
 ---
 
-Built by [itsabhipro](https://github.com/itsabhipro) · Deployed on Vercel
+Built by [itsabhipro](https://ai-document-intelligence-platform-silk.vercel.app/) · Deployed on Vercel
